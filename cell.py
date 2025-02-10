@@ -7,19 +7,48 @@ class Cell:
         self._x1, self._y1 = x1, y1
         self._x2, self._y2 = x2, y2
         self._win = win
+        self.visited = False
 
     def draw(self):
         if self._win is None:
             return
         canvas = self._win.get_canvas()
-        if self.has_left_wall:
-            canvas.create_line(self._x1, self._y1, self._x1, self._y2, fill="black", width=2)
-        if self.has_top_wall:
-            canvas.create_line(self._x1, self._y1, self._x2, self._y1, fill="black", width=2)
-        if self.has_right_wall:
-            canvas.create_line(self._x2, self._y1, self._x2, self._y2, fill="black", width=2)
-        if self.has_bottom_wall:
-            canvas.create_line(self._x1, self._y2, self._x2, self._y2, fill="black", width=2)
+
+        canvas.create_line(
+            self._x1,
+            self._y1,
+            self._x1,
+            self._y2,
+            fill="black" if self.has_left_wall else "#d9d9d9",
+            width=2,
+        )
+
+        canvas.create_line(
+            self._x1,
+            self._y1,
+            self._x2,
+            self._y1,
+            fill="black" if self.has_top_wall else "#d9d9d9",
+            width=2,
+        )
+
+        canvas.create_line(
+            self._x2,
+            self._y1,
+            self._x2,
+            self._y2,
+            fill="black" if self.has_right_wall else "#d9d9d9",
+            width=2,
+        )
+
+        canvas.create_line(
+            self._x1,
+            self._y2,
+            self._x2,
+            self._y2,
+            fill="black" if self.has_bottom_wall else "#d9d9d9",
+            width=2,
+        )
 
     def draw_move(self, to_cell, undo=False):
         if self._win is None:
