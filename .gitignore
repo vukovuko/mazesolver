@@ -1,0 +1,44 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+
+# Tkinter-related temp files (if any)
+*.tcl
+
+# Logs and debug files
+*.log
+debug.log
+nohup.out
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python package files
+*.egg-info/
+dist/
+build/
+
+# Coverage reports
+.coverage
+htmlcov/
+*.cover
+
+# Test artifacts
+*.pytest_cache/
+.tox/
+nosetests.xml
+
