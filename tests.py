@@ -25,21 +25,15 @@ class Tests(unittest.TestCase):
         num_rows = 3
         num_cols = 3
         maze = Maze(0, 0, num_rows, num_cols, 10, 10, win=None)
-        self.assertTrue(maze._cells[0][0].has_top_wall)
-        self.assertTrue(maze._cells[num_cols - 1][num_rows - 1].has_bottom_wall)
-        maze._break_entrance_and_exit()
         self.assertFalse(maze._cells[0][0].has_top_wall)
         self.assertFalse(maze._cells[num_cols - 1][num_rows - 1].has_bottom_wall)
 
     def test_reset_cells_visited(self):
         maze = Maze(0, 0, 3, 3, 15, 15, win=None, seed=0)
-
         for i in range(maze._num_cols):
             for j in range(maze._num_rows):
                 maze._cells[i][j].visited = True
-
         maze._reset_cells_visited()
-
         for i in range(maze._num_cols):
             for j in range(maze._num_rows):
                 self.assertFalse(maze._cells[i][j].visited)
